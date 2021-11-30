@@ -1,5 +1,10 @@
 alma
 barack
+banán
 szilva
 körte
 szőlő
+citrom
+narancs
+alma
+körte

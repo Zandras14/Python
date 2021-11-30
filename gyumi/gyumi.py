@@ -1,8 +1,16 @@
 
+file_name = 'gyumi/files/gyumi.txt'
+
+
+
+
 def fajbaIras(gyumi):
-    fp = open('gyumi/gyumi.txt', 'a', encoding='utf-8')
+    fp = open(file_name, 'a', encoding='utf-8')
     fp.write(gyumi + '\n')
     fp.close()
 
-gyumi = input('Gyümölcs: ')
-fajbaIras(gyumi)
+gyumi = ''
+while gyumi != 'vege':
+    gyumi = input('Gyümölcs: ')
+    if gyumi != 'vege':
+        fajbaIras(gyumi)
