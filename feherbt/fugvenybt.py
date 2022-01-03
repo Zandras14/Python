@@ -59,5 +59,3 @@ def start():
     sumLajos()
 
 start()
-
-
