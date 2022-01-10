@@ -49,7 +49,7 @@ class Mikronezia:
         for country in self.countries:
             if country.population < 99000:
                 pop_less = country
-                print('A 99 ezernél kisebb népességő országok',
+                print('A 99 ezernél kisebb népességő országok:',
                         pop_less.name,
                         pop_less.population)
                 
@@ -60,7 +60,7 @@ class Mikronezia:
         for country in self.countries:
             if country.area > 500:
                 more += 1
-        print('Ennyi 500 négyeztkilométernél nagyobb területi ország van', more)
+        print('Ennyi 500 négyeztkilométernél nagyobb területi ország van:', more)
                 
 
     # Hány ország nevében szerepel a "sziget" szó?
@@ -69,7 +69,7 @@ class Mikronezia:
         for country in self.countries:
             if country.name.find('sziget') != -1:
                 count += 1
-        print('A sziget szó ennyi ország nevében szerepel',count)
+        print('A sziget szó ennyi ország nevében szerepel:',count)
             
 
     # Az országok területe összesen
@@ -77,8 +77,8 @@ class Mikronezia:
         all_area = 0
         for country in self.countries:
             if country.area:
-                all_area = all_area + country.area
-        print('Az országok területe összesen %5d négyzetkilométer' % all_area)
+                all_area += country.area
+        print('Az országok területe összesen%5d négyzetkilométer' % all_area)
             
 
     # Az országok népességének átlaga
@@ -89,12 +89,17 @@ class Mikronezia:
             if country.population:
                 count += 1
                 average_pop = (average_pop + country.population)
-        print('Az országok népességének átlaga %6d'% (average_pop/count))
+        print('Az országok népességének átlaga %.2f fő'% (average_pop/count))
 
 
     # Állapítsuk meg, hogy egyszavas, vagy nem, a név
-    def is_one_word(self,country):
-        return True
+    def is_one_word(self, country:Country):
+        res = country.name.find('-')
+        if res == -1:
+            return True
+        else:
+            return False
+
 
     def write_a_country(self, fp, country):
         fp.write(country.id)
@@ -125,5 +130,4 @@ mikro.more_than_five_hunderd_area()
 mikro.island_word_in_name()
 mikro.sum_areas()
 mikro.population_average()
-#mikro.is_one_word()
 mikro.write_one_word()
